@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Rastrealo.Models.route>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.busId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.priority)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.busId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priority)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.routeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.routeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.routeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

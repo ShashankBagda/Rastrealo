@@ -1,0 +1,217 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Rastrealo
+build_property.RootNamespace = Rastrealo
+build_property.ProjectDir = D:\Akshat\python\Rastrealo\Rastrealo\Rastrealo\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Akshat\python\Rastrealo\Rastrealo\Rastrealo
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/admins/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/admins/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/admins/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/admins/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/admins/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/buses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnVzZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/buses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnVzZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/buses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnVzZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/buses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnVzZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/buses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYnVzZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/drivers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZHJpdmVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/drivers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZHJpdmVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/drivers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZHJpdmVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/drivers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZHJpdmVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/drivers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZHJpdmVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Home/admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Home/driver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxkcml2ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Home/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxsb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Home/student.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzdHVkZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/ViewList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXFZpZXdMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/routes/ViewListUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Nccm91dGVzXFZpZXdMaXN0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/shifts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hpZnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/shifts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hpZnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/shifts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hpZnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/shifts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hpZnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/shifts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2hpZnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-z960d9dwfi
+
+[D:/Akshat/python/Rastrealo/Rastrealo/Rastrealo/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ypiyngmol2

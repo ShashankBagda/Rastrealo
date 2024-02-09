@@ -1,0 +1,404 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .navbar {
+            background-color: #20c997;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand,
+        .navbar-text,
+        .btn-outline-danger {
+            color: white;
+        }
+
+        .second-section {
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .responsive-map {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #dee2e6;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #218838;
+            }
+
+        .clock {
+            font-size: 2rem;
+            color: #20c997;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script>
+        function checkCookie(name) {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Check if the cookie starts with the specified name
+                if (cookie.indexOf(name + "=") === 0) {
+                    return true; // Cookie found
+                }
+            }
+            return false; // Cookie not found
+        }
+
+        function getCookieValue(cookieName) {
+            var cookies = document.cookie.split(';');
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+
+                if (cookie.indexOf(cookieName + "=") === 0) {
+                    return cookie.substring(cookieName.length + 1);
+                }
+            }
+
+            return null;
+        }
+
+        // Check if a cookie named "userId" is present
+        var isUserIdPresent = checkCookie("userId");
+        var userType = getCookieValue("userType");
+        if (isUserIdPresent && userType === "driver") {
+            console.log("Cookie 'userId' is present.");
+        } else {
+            let uri = "https://localhost:7110/";
+            window.location.href = uri;
+        }
+    </script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: aquamarine;">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img src="https://media.istockphoto.com/id/1269785368/vector/road-construction-logo-road-maintenance-creative-sign-concept-paving-design-template-vector.jpg?s=612x612&w=0&k=20&c=nsHUDbyjIO1rFRpkgsug51nz-39zPx470CF6vIlcsg8="
+                     width="80" height="60" class="d-inline-block align-text-center">
+                Rastrealo
+            </a>
+            <h1 class="align-text-center" id="greetings">Welcome, Driver</h1>
+            <button type="button" class="btn btn-danger align-text-center" id="logOutBtn">Log Out</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+
+    <div class="container-fluid p-4 second-section">
+        <div class="row">
+            <divs>
+                <h3>Today's Routes</h3>
+                <table id="routeTable" class="table table-striped" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid p-4 second-section">
+        <div class="row">
+            <div class="col-12 col-md-6 p-4">
+                <h1 class="busNoTxt">Bus No : XX</h1>
+                <div class="clock" id="clock"></div>
+                <table class="table table-striped mt-4">
+                    <thead>
+                        <tr>
+                            <th>Bus Route</th>
+                        </tr>
+                    </thead>
+                    <tbody id="busRoutes">
+                       
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 col-md-6 p-4 responsive-map">
+                <div id="map" class="w-100 h-100"></div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="container-fluid p-4 second-section">
+        <div class="row">
+            <div class="col-12 col-md-4"></div>
+            <div class="col-12 col-md-4 d-flex flex-row justify-content-around">
+                <h3 style="display: inline; text-align: center;">No of Passengers : </h3>
+                <div>
+                    <button type="button" class="btn btn-danger" id="remove_stud">-</button>
+                    <button type="button" class="btn btn-secondary" id="stud_count" disabled>0</button>
+                    <button type="button" class="btn btn-primary" id="add_stud">+</button>
+                    <button type="button" class="btn btn-outline-success" id="save_count">Save</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4"></div>
+        </div>
+    </div>*@
+
+    <script>
+        //var studCountBtn = document.getElementById('stud_count');
+        //var addStudBtn = document.getElementById('add_stud');
+        //var removeStudBtn = document.getElementById('remove_stud');
+
+        var button = document.getElementById("logOutBtn");
+        let url = "https://localhost:7110/";
+
+        var theMarker = {};
+
+        var map = L.map('map').setView([22.2887936, 70.77888], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        document.querySelector("#greetings").innerHTML = `Welcome, ${getCookieValue("userName")}`;
+        button.addEventListener("click", function () {
+            document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = url;
+        });
+        function clearCookies() {
+            document.cookie = "userId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+        //addStudBtn.addEventListener('click', function () {
+        //    var count = parseInt(studCountBtn.innerText);
+        //    count++;
+        //    studCountBtn.innerText = count;
+        //});
+
+        //removeStudBtn.addEventListener('click', function () {
+        //    var count = parseInt(studCountBtn.innerText);
+        //    count = Math.max(0, count - 1);
+        //    studCountBtn.innerText = count;
+        //});
+
+
+
+        function showPosition(position) {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+            console.log(busId);
+            $.ajax({
+                type: "POST",
+                url: url + "buses/updateLocation",
+                data: {
+                    busId: busId,
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                },
+                success: function (response) {
+                    console.log("Location Updated");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log("Failed To update location");
+                }
+            });
+            //Clear existing marker,
+
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+
+            //Add a marker to show where you clicked.
+            theMarker = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+
+        }
+
+        function updateLocation() {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            var timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
+            document.getElementById('clock').innerText = timeString;
+
+
+            
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        
+        
+        function getCookieValue(cookieName) {
+            var cookies = document.cookie.split(';');
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+
+                if (cookie.indexOf(cookieName + "=") === 0) {
+                    return cookie.substring(cookieName.length + 1);
+                }
+            }
+
+            return null;
+        }
+
+        var driverId = getCookieValue("userId");
+        console.log(driverId);
+        let busId = 0;
+
+        function setBusId(busIdN){
+            busId = busIdN;
+            document.querySelector(".busNoTxt").innerHTML = `Bus No : ${busIdN}`
+        }
+
+        function showRoute(budIdN){
+            let budIdd = budIdN
+            $.ajax({
+                url: url + "buses/GetBusRoute?busId=" + budIdd,
+                method: "GET",
+                success: function (data) {
+                    console.log(data);
+                    let tr = document.querySelector("#busRoutes");
+                    let td1 = '';
+                    data.forEach((ele) => {
+                        td1 += `<tr><td>${ele.stopName}</td></tr>`;
+                    })
+                    tr.innerHTML = td1;
+                },
+                error: function (error) {
+                    console.error("Error loading content:", error);
+                }
+            })
+        }
+
+        function fillDetails() {
+            console.log(driverId);
+            $.ajax({
+                url: url + "drivers/GetDriverData?driverId=" + driverId,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Handle the successful response
+                    console.log(data);
+                    data.forEach((ele)=>{
+                        let tr = document.createElement("tr");
+                        tr.setAttribute("onclick", `showRoute(${ele.busId})`);
+                        let td1 = document.createElement("td");
+                        td1.innerHTML = ele.shiftName;
+                        console.log(ele);
+                        console.log(ele.shiftName);
+                        let td2 = document.createElement("td");
+                        td2.innerHTML = "8:00 AM";
+                        let td3 = document.createElement("td");
+                        td3.innerHTML = "9:30 AM";
+                        //let td4 = document.createElement("td");
+                        //td4.setAttribute("onclick", `markeAsComplete(${ele.busId})`);
+                        //td4.innerHTML = "Mark as Complete";
+                        tr.appendChild(td1);
+                        tr.appendChild(td2);
+                        tr.appendChild(td3);
+                        //tr.appendChild(td4);
+                        let table = document.querySelector('#routeTable tbody')
+                        table.appendChild(tr);
+                    })
+                },
+                error: function (error) {
+                    // Handle errors
+                    console.error("Error:", error);
+                }
+            });
+
+
+            $.ajax({
+                url: url + "drivers/GetDriverBus?driverId=" + driverId,
+                method: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Handle the successful response
+                    console.log(data.busId);
+                    busId = data.busId;
+                    setBusId(data.busId);
+                },
+                error: function (error) {
+                    // Handle errors
+                    console.error("Error:", error);
+                }
+            });
+        }
+        window.addEventListener("load", function () {
+            
+            fillDetails();
+
+            if (navigator.geolocation) {
+                setInterval(updateLocation, 10000)
+            } else {
+                console.log("Geolocation is not supported by this browser.")
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

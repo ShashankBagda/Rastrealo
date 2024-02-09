@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Rastrealo.Models.bus>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.numberPlate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.shift)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.passengers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numberPlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.passengers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.busId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.busId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.busId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
