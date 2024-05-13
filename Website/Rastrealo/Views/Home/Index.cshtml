@@ -1,0 +1,474 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@* 
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rastrealo Transportation</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/Rastrealo.styles.css" asp-append-version="true" />
+	<style>
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f8f9fa;
+			color: #343a40;
+		}
+
+		.navbar {
+			background-color: #20c997;
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		.navbar-brand {
+			color: white;
+			font-weight: bold;
+		}
+
+		.hero-section {
+			position: relative;
+			min-height: 600px;
+			color: white;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background: url('./images/bg.webp') no-repeat center center/cover;
+		}
+
+		.hero-section h1 {
+			font-size: 3rem;
+			margin-bottom: 20px;
+		}
+
+		.hero-section h5 {
+			font-size: 1.5rem;
+			margin-bottom: 30px;
+		}
+
+		.cta-button {
+			margin-top: 20px;
+			padding: 12px 24px;
+			font-size: 1.2rem;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
+
+		.cta-button:hover {
+			background-color: #28a745;
+		}
+
+		.features-section {
+			color: #ffffff;
+			padding: 50px 0;
+			background-color: #343a40;
+		}
+
+		.feature-item {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.feature-item h3 {
+			font-size: 1.5rem;
+			margin-bottom: 10px;
+			color: #28a745;
+		}
+
+		.feature-item p {
+			font-size: 1.1rem;
+			color: #6c757d;
+		}
+
+		.about-section, .contact-section {
+			padding: 50px 0;
+		}
+
+		.card {
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+			background-color: rgba(0, 0, 0, 0.8); /* Black color with 80% transparency */
+			color: white;
+			padding: 20px;
+		}
+
+		.card:hover {
+			box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+		}
+		
+		#loader-animation {
+			width:100%;
+			height:100vh;
+			position:fixed;
+			top:0;
+			z-index:99;
+			background: linear-gradient(45deg, #6fc7b5 0%, #13bdce 20%, #0094d9 40%, #5a3694 60%, #ee4d74 80%, #f58c58 100%);
+			background-size: 600%;
+			background-position: 0% 100%;
+			-webkit-animation: gradient 7s ease-in-out infinite;
+			animation: gradient 7s ease-in-out infinite;
+			left: 0;
+		}
+		
+		.disabled {
+			display:none;
+		}
+		
+		.loading {
+		  width: 100%;
+		  height: 100%;
+		}
+		.loading * {
+		  position: absolute;
+		  left: 50%;
+		  top: 50%;
+		  transform: translate3d(-50%, -50%, 0) rotate(0deg);
+		}
+		.loading .logo {
+		  /*background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/440564/galleria-en.svg");
+		  background-repeat: no-repeat;
+		  background-position: center;*/
+		  width: 180px;
+		  height: 100%;
+		  font-size:50px;
+		  display:flex;
+		  align-items:center;
+		  justify-content:center;
+		  color:#ffffff;
+		  font-family: 'Playfair Display', serif;
+		}
+		.loading .dots.animate .dot {
+		  -webkit-animation: loading-block 3.5s ease-in-out infinite;
+				  animation: loading-block 3.5s ease-in-out infinite;
+		}
+		.loading .dots.animate .dot:after {
+		  -webkit-animation: loading-dot 3.5s ease-in-out infinite;
+				  animation: loading-dot 3.5s ease-in-out infinite;
+		}
+		.loading .dots .dot {
+		  width: 300px;
+		  height: 300px;
+		}
+		.loading .dots .dot:after {
+		  content: "";
+		  display: inline-block;
+		  width: 60px;
+		  height: 60px;
+		  background-color: #fff;
+		  border-radius: 50%;
+		  position: absolute;
+		  transform: scale(0.17);
+		}
+		.loading .dots .dot:nth-child(1) {
+		  top: 144px;
+		  left: -212px;
+		  -webkit-animation-delay: 0s;
+				  animation-delay: 0s;
+		}
+		.loading .dots .dot:nth-child(1):after {
+		  transform-origin: top right;
+		  top: 0;
+		  right: 0;
+		  -webkit-animation-delay: 0s;
+				  animation-delay: 0s;
+		}
+		.loading .dots .dot:nth-child(2) {
+		  top: -147px;
+		  left: -134px;
+		  -webkit-animation-delay: 0.25s;
+				  animation-delay: 0.25s;
+		}
+		.loading .dots .dot:nth-child(2):after {
+		  transform-origin: bottom right;
+		  bottom: 0;
+		  right: 0;
+		  -webkit-animation-delay: 0.25s;
+				  animation-delay: 0.25s;
+		}
+		.loading .dots .dot:nth-child(3) {
+		  top: -145px;
+		  left: -100px;
+		  -webkit-animation-delay: 0.5s;
+				  animation-delay: 0.5s;
+		}
+		.loading .dots .dot:nth-child(3):after {
+		  transform-origin: bottom right;
+		  bottom: 0;
+		  right: 0;
+		  -webkit-animation-delay: 0.5s;
+				  animation-delay: 0.5s;
+		}
+		.loading .dots .dot:nth-child(4) {
+		  top: 116px;
+		  left: 200px;
+		  -webkit-animation-delay: 0.75s;
+				  animation-delay: 0.75s;
+		}
+		.loading .dots .dot:nth-child(4):after {
+		  transform-origin: top left;
+		  top: 0;
+		  left: 0;
+		  -webkit-animation-delay: 0.75s;
+				  animation-delay: 0.75s;
+		}
+		.loading .dots .dot:nth-child(5) {
+		  top: -161px;
+		  left: 214px;
+		  -webkit-animation-delay: 1s;
+				  animation-delay: 1s;
+		}
+		.loading .dots .dot:nth-child(5):after {
+		  transform-origin: bottom left;
+		  bottom: 0;
+		  left: 0;
+		  -webkit-animation-delay: 1s;
+				  animation-delay: 1s;
+		}
+
+		.pricing-container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 40px 20px;
+		}
+
+		/* .card {
+			border: none;
+			border-radius: 10px;
+			box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+			transition: transform 0.3s ease;
+		} */
+
+		/* .card:hover {
+			transform: scale(1.05);
+		} */
+
+		.card-title {
+			font-size: 24px;
+			color: #333333;
+		}
+
+		.card-subtitle {
+			font-size: 18px;
+			color: #4CAF50;
+		}
+
+		.list-group-item {
+			color: #666666;
+		}
+
+		.btn {
+			background-color: #4CAF50;
+			color: #ffffff;
+			border: none;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn:hover {
+			background-color: #45a049;
+		}
+	</style>
+	
+	
+</head>
+<body>
+
+	<div id="loader-animation">
+		<div class='loading'>
+		  <div class='logo'>Rastrealo</div>
+		  <div class='dots animate'>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			<div class='dot'></div>
+			</div>
+		</div>
+	</div>
+	<!-- Navbar Section -->
+	<nav class="navbar navbar-expand-lg navbar-light">
+		<!-- ... (navbar content) ... -->
+	</nav>
+
+	<!-- Hero Section -->
+	<div class="hero-section text-center">
+		<div class="card" style="align-items: center;">
+			<h1>Rastrealo Transportation Management System</h1>
+			<h5>Efficient and Safe Transport Solutions</h5>
+			<a asp-controller="Home" asp-action="login" class="btn btn-success col-4 cta-button">Log In</a>
+		</div>
+	</div>
+
+	<!-- Features Section -->
+	<section class="features-section text-center">
+		<div class="container">
+			<h2 class="mb-4">Features</h2>
+			<div class="row">
+				<div class="col-md-4 feature-item">
+					<div class="card">
+						<h3>Real-time Tracking</h3>
+						<img src="/images/map_compas.gif" alt="Real-time Tracking" style="width:100%">
+						<p>Track buses and routes in real-time, ensuring safety and timely arrivals.</p>
+					</div>
+				</div>
+				<div class="col-md-4 feature-item">
+					<div class="card">
+						<h3>Efficient Scheduling</h3>
+						<img src="/images/preview.gif" alt="Efficient Scheduling" style="width:100%">
+						<p>Optimize bus routes and schedules to reduce travel time and fuel consumption.</p>
+					</div>
+				</div>
+				<div class="col-md-4 feature-item">
+					<div class="card">
+						<h3>Automated Notifications</h3>
+						<img src="/images/notification.gif" alt="Automated Notifications" style="width:100%">
+						<p>Receive automated notifications about bus arrivals, delays, and route changes.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing Section -->
+	<section class="contact-section text-center">
+		<div class="container">
+			<div class="card">
+				<h2 class="mb-4">Our Pricing</h2>
+				<!-- <div class="row">
+					<div class="col-md-6 offset-md-3">
+						<div class="contact-info">
+							<h4>If you have any questions or inquiries, feel free to reach out to us:</h4>
+							<p>Email: <a href="mailto:shashankbagda167@gmail.com">shashankbagda167@gmail.com</a></p>
+							<p>Phone: +91 72030 39929</p>
+							<p>
+								<a href="https://www.linkedin.com/in/shashank-bagda/" target="_blank">
+								<img src="/images/linkedin.png" height="50px" width="50px"></a>
+
+								<a href="https://github.com/ShashankBagda" target="_blank">
+									<img src="/images/github.png" height="50px" width="50px"></a>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div> -->
+
+				<div class="pricing-container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="card p-4">
+								<div class="card-body">
+									<h5 class="card-title">Silver Plan</h5>
+									<h6 class="card-subtitle mb-2 text-muted">$9.99/month</h6>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">Basic features included</li>
+										<li class="list-group-item">Limited access to premium content</li>
+										<li class="list-group-item">Email support</li>
+									</ul>
+									<a href="#" class="btn mt-3">Get Silver Plan</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card p-4">
+								<div class="card-body">
+									<h5 class="card-title">Gold Plan</h5>
+									<h6 class="card-subtitle mb-2 text-muted">$19.99/month</h6>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">Unlimited access to all features</li>
+										<li class="list-group-item">24/7 customer support</li>
+										<li class="list-group-item">Exclusive content</li>
+									</ul>
+									<a href="#" class="btn mt-3">Get Gold Plan</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card p-4">
+								<div class="card-body">
+									<h5 class="card-title">Platinum Plan</h5>
+									<h6 class="card-subtitle mb-2 text-muted">$29.99/month</h6>
+									<ul class="list-group list-group-flush">
+										<li class="list-group-item">Priority access to new features</li>
+										<li class="list-group-item">Personal account manager</li>
+										<li class="list-group-item">Ad-free experience</li>
+									</ul>
+									<a href="#" class="btn mt-3">Get Platinum Plan</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>    
+		</div>
+	</section>
+
+	<!-- About Us Section -->
+	<section class="about-section text-center">
+		<div class="container">
+			<div class="card" style="align-items: center;">
+				<h2 class="mb-4">About The Developer</h2>
+				<img src="~/images/photo 1.JPG" alt="Developer's Photo" style="width: 40%">
+				<h5>
+					<p>Welcome to Rastrealo, your reliable companion on the roads! This innovative transportation solution was crafted with passion and expertise by our dedicated developer,<h3>Shashank Bagda</h3></p>
+					<p>He is a skilled technologist with a strong background in .NET, JavaScript, and real-time communication frameworks like SignalR and Google Services. With a passion for creating impactful solutions, he turned the vision of Rastrealo into a reality.</p>
+					<p>Have a question, suggestion, or just want to say hello? We would love to connect with users and fellow tech enthusiasts.</p>
+				</h5>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Us Section -->
+	<section class="contact-section text-center">
+		<div class="container">
+			<div class="card">
+				<h2 class="mb-4">Contact Us</h2>
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						<div class="contact-info">
+							<h4>If you have any questions or inquiries, feel free to reach out to us:</h4>
+							<p>Email: <a href="mailto:shashankbagda167@gmail.com">shashankbagda167@gmail.com</a></p>
+							<p>Phone: +91 72030 39929</p>
+							<p>
+								<a href="https://www.linkedin.com/in/shashank-bagda/" target="_blank">
+								<img src="~/images/linkedin.png" height="50px" width="50px"></a>
+
+								<a href="https://github.com/ShashankBagda" target="_blank">
+									<img src="~/images/github.png" height="50px" width="50px"></a>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>    
+		</div>
+	</section>
+
+	<script src="https://cdn.jsdelivr.net/npm/lottie-web/build/player/lottie.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+		// Get the DOM element for the animation container
+		var animationContainer = document.getElementById('loader-animation');
+	
+		const myTimeout = setTimeout(()=>{
+			animationContainer.classList.add('disabled');
+		}, 3000);
+	</script>
+	<!-- Bootstrap JS and other scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

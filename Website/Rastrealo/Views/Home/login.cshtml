@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastrealo Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            .login-container h2 {
+                margin-bottom: 30px;
+                font-size: 2rem;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 40px;
+            font-size: 1rem;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-container">
+                    <a asp-controller="Home" asp-action="Index"><h2>Rastrealo</h2></a>
+                    <form onsubmit="redirectUser(event)">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success login-button">Log In</button>
+                    </form>
+                    <div class="mt-3">
+                        <a asp-controller="Home" asp-action="reset" class="forgot-password-link"><button class="btn btn-danger">Forget Password</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        function redirectUser(event) {
+            event.preventDefault();
+            var user = document.getElementById("username").value.toLowerCase();
+            var pass = document.getElementById("password").value.toLowerCase();
+            console.log(user);
+            if (pass === "123") {
+                if (user === "admin") 
+                {
+                    window.location.href = "https://localhost:7266/Home/admin";
+                } else if (user === "student") {
+                    window.location.href = "https://localhost:7266/Home/student";
+                } else if (user === "driver") {
+                    window.location.href = "https://localhost:7266/Home/driver";
+                } else {
+                    alert("Invalid username. Please try again.");
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Add your meta tags, title, Bootstrap and custom styles here -->
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Bootstrap and other styles -->
+    <!-- ... -->
+
+    <style>
+        /* Your custom styles */
+        .responsive-map {
+            overflow: hidden;
+            border-radius: 10px;
+            height: 400px; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your navigation bar and other content here -->
+
+    <!-- Main Content -->
+    <div class="container p-4 second-section">
+        <div class="row">
+            <!-- ... Your other content ... -->
+
+            <div class="col-md-6 col-sm-12 p-4 responsive-map">
+                <div id="leafletMap" class="w-100 h-100"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your script tags for Bootstrap and other scripts -->
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Your custom JavaScript -->
+    <script>
+        // Initialize Leaflet map
+        const map = L.map('leafletMap').setView([22.367434340459102, 70.79464107503472], 15);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Example marker
+        const marker = L.marker([22.367434340459102, 70.79464107503472]).addTo(map);
+        marker.bindPopup("<b>Hello!</b><br>This is a popup.").openPopup();
+    </script>
+</body>
+
+</html>

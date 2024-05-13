@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastrealo Pricing</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+
+        .pricing-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: #333333;
+        }
+
+        .card-subtitle {
+            font-size: 18px;
+            color: #4CAF50;
+        }
+
+        .list-group-item {
+            color: #666666;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-4 second-section">
+        <div class="row">
+            <div>
+                <h3>Your Bus Schedule</h3>
+                <table id="scheduleTable" class="table table-striped" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Pick Up</th>
+                            <th>Drop In</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Bus Stop</b></td>
+                            <td>SNK School</td>
+                            <td>SNK School</td>
+                        </tr>
+                        <tr>
+                            <td><b>Shift</b></td>
+                            <td>1</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><b>Start Time</b></td>
+                            <td>6:25 AM</td>
+                            <td>4:25 PM</td>
+                        </tr>
+                        <tr>
+                            <td><b>End Time</b></td>
+                            <td>7:00 AM</td>
+                            <td>5:15 PM</td>
+                        </tr>
+                        <tr>
+                            <td><b>Bus No</b></td>
+                            <td>20</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td><b>Driver Name</b></td>
+                            <td>Mr. Ranjitsinh Rauma</td>
+                            <td>Mr. Rajdeepsinh Jadeja</td>
+                        </tr>
+                        <tr>
+                            <td><b>Contact No</b></td>
+                            <td>7203039929</td>
+                            <td>7203039929</td>
+                        </tr>
+                        <!-- Add more rows for other routes -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Silver Plan</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">$9.99/month</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Basic features included</li>
+                            <li class="list-group-item">Limited access to premium content</li>
+                            <li class="list-group-item">Email support</li>
+                        </ul>
+                        <a href="#" class="btn mt-3">Get Silver Plan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gold Plan</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">$19.99/month</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Unlimited access to all features</li>
+                            <li class="list-group-item">24/7 customer support</li>
+                            <li class="list-group-item">Exclusive content</li>
+                        </ul>
+                        <a href="#" class="btn mt-3">Get Gold Plan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Platinum Plan</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">$29.99/month</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Priority access to new features</li>
+                            <li class="list-group-item">Personal account manager</li>
+                            <li class="list-group-item">Ad-free experience</li>
+                        </ul>
+                        <a href="#" class="btn mt-3">Get Platinum Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

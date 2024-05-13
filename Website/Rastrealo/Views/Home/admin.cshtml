@@ -1,0 +1,250 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .navbar {
+            background-color: #20c997;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        .navbar-brand,
+        .navbar-text,
+        .btn-outline-danger {
+            color: white;
+        }
+
+        .second-section {
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .responsive-map {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #dee2e6;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #218838;
+            }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+            .search-form input[type="search"] {
+                flex: 1;
+                margin-right: 10px;
+            }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: aquamarine;">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <img src="https://media.istockphoto.com/id/1269785368/vector/road-construction-logo-road-maintenance-creative-sign-concept-paving-design-template-vector.jpg?s=612x612&w=0&k=20&c=nsHUDbyjIO1rFRpkgsug51nz-39zPx470CF6vIlcsg8="
+                     width="80" height="60" class="d-inline-block align-text-center">
+                Rastrealo
+            </a>
+            <h1 class="align-text-center">Welcome, Admin</h1>
+            <a asp-controller="Home" asp-action="login"><button type="button" class="btn btn-danger align-text-center">Log Out</button></a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-4 second-section">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-1"></div>
+            <div class="col-12 col-sm-12 col-md-5 p-3">
+                <h5>Select Shift :</h5>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option value="s1-up">Shift - 1 (Pick Up)</option>
+                    <option value="s1-down">Shift - 1 (Drop)</option>
+                    <option value="s2-up">Shift - 2 (Pick Up)</option>
+                    <option value="s2-down">Shift - 2 (Drop)</option>
+                    <option value="lib-eve">Library cum Hostel Daily Evening</option>
+                    <option value="lib-sun">Library cum Hostel Sunday</option>
+                </select>
+            </div>
+            <div class="col-12 col-sm-12 col-md-5 p-3">
+                <h5>Enter Bus No / Stop Name :</h5>
+                <form class="search-form d-flex">
+                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Enter Here"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-12 col-sm-12 col-md-1"></div>
+        </div>
+    </div>
+    <div class="container-fluid p-4 second-section">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 p-4">
+                <table id="sortableTable" class="table table-striped" style="text-align: center;">
+                    <thead>
+                    <th>Bus Route</th>
+                    </thead>
+                    <tbody>
+                        <tr class="stop" data-rowid="1" data-stop="Stop 1">
+                            <td>Stop 1</td>
+                        </tr>
+                        <tr class="stop" data-rowid="2" data-stop="Stop 2">
+                            <td>Stop 2</td>
+                        </tr>
+                        <tr class="stop" data-rowid="3" data-stop="Stop 3">
+                            <td>Stop 3</td>
+                        </tr>
+                        <tr class="stop" data-rowid="4" data-stop="Stop 4">
+                            <td>Stop 4</td>
+                        </tr>
+                        <tr class="stop" data-rowid="5" data-stop="Stop 5">
+                            <td>Stop 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn-group col-12 col-sm-12 col-md-12">
+                    <button type="button" class="btn btn-outline-primary" id="editButton">Edit Route</button>
+                    <button type="button" class="btn btn-outline-info" id="addButton">Add Route</button>
+                    <button type="button" class="btn btn-outline-success" id="deleteButton">Delete Route</button>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 p-4 responsive-map">
+                <iframe class="w-100 h-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.6342698009603!2d70.79464107503472!3d22.367434340459102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a27af07389cb377%3A0xe6c1048589fe4e62!2sMarwadi%20University%20(Engineering%2C%20MBA%2C%20Law%2C%20Science%2C%20Architecture%2C%20Physiotherapy)!5e0!3m2!1sen!2sin!4v1696357968343!5m2!1sen!2sin"
+                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const stopList = document.querySelectorAll('.stop');
+        const editButton = document.getElementById('editButton');
+        const addButton = document.getElementById('addButton');
+        const deleteButton = document.getElementById('deleteButton');
+        let selectedRowId = null;
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            for (const stop of stopList) {
+                const stopName = stop.getAttribute('data-stop').toLowerCase();
+                if (stopName.includes(searchTerm)) {
+                    stop.classList.remove('d-none');
+                } else {
+                    stop.classList.add('d-none');
+                }
+            }
+        });
+
+        // Function to handle row selection
+        function selectRow(event) {
+            const row = event.currentTarget;
+            if (row.classList.contains('selected')) {
+                row.classList.remove('selected');
+                selectedRowId = null;
+            } else {
+                for (const stop of stopList) {
+                    stop.classList.remove('selected');
+                }
+                row.classList.add('selected');
+                selectedRowId = parseInt(row.getAttribute('data-rowid'));
+            }
+        }
+
+        // Add event listener to each row for selection
+        stopList.forEach(stop => {
+            stop.addEventListener('click', selectRow);
+        });
+
+        // Function to edit selected row
+        function editRow() {
+            if (selectedRowId !== null) {
+                const stop = document.querySelector(`[data-rowid="${selectedRowId}"]`);
+                const newName = prompt('Enter new stop name:');
+                if (newName !== null && newName.trim() !== '') {
+                    stop.setAttribute('data-stop', newName);
+                    stop.querySelector('td').innerText = newName;
+                }
+            } else {
+                alert('Please select a stop to edit.');
+            }
+        }
+
+        // Function to add new row
+        function addRow() {
+            const newName = prompt('Enter new stop name:');
+            if (newName !== null && newName.trim() !== '') {
+                const newRowId = stopList.length + 1;
+                const newRow = document.createElement('tr');
+                newRow.setAttribute('class', 'stop');
+                newRow.setAttribute('data-rowid', newRowId);
+                newRow.setAttribute('data-stop', newName);
+                newRow.innerHTML = `<td>${newName}</td>`;
+                newRow.addEventListener('click', selectRow);
+                document.querySelector('tbody').appendChild(newRow);
+            }
+        }
+
+        // Function to delete selected row
+        function deleteRow() {
+            if (selectedRowId !== null) {
+                const stop = document.querySelector(`[data-rowid="${selectedRowId}"]`);
+                stop.remove();
+                selectedRowId = null;
+            } else {
+                alert('Please select a stop to delete.');
+            }
+        }
+
+        // Add event listeners to buttons
+        editButton.addEventListener('click', editRow);
+        addButton.addEventListener('click', addRow);
+        deleteButton.addEventListener('click', deleteRow);
+    </script>
+</body>
+
+</html>
